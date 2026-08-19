@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Optional
 
 from coords import Map2DCoords
 
@@ -24,49 +25,17 @@ class DirectionalSegRef:
     seg_index: int
     is_reverse: bool
 
-@dataclass
-class CodedStreetSeg:
-    street_name: str
-
-    # node names
-    nodes: tuple[str, str]
-
-    # LED IDs, in order from nodes[0] to nodes[1]
-    leds: list[int]
-
-    # in order from nodes[0] to nodes[1]
-    curve: list[Map2DCoords]
-
-class StreetsGraph:
+class StreetGraph:
     nodes: list[StreetNode]
     segs: list[StreetSeg]
 
-    adj_matrix: list[list[DirectionalSegRef]]
+    adj_matrix: list[list[Optional[DirectionalSegRef]]]
 
-    def __init__(self, segs: list[CodedStreetSeg]):
-        node_names: list[str] = []
+    def __init__(self, nodes: list[StreetNode], segs: list[StreetSeg]):
+        self.nodes = nodes
+        self.segs = segs
 
-        for seg in segs:
-            node_0_index = node_names.index(seg.nodes[0])
-            node_1_index = node_names.index(seg.nodes[1])
-
-            if node_0_index == -1:
-                node_0_index = len(node_names)
-                node_names.append(seg.nodes[0])
-            if node_1_index == -1:
-                node_1_index = len(node_names)
-                node_names.append(seg.nodes[1])
-
-            self.segs.append(CodedStreetSeg(
-                seg.street_name,
-                (node_0_index, node_1_index),
-                seg.leds,
-                seg.curve,
-            ))
-
-        for _ in node_names:
-            self.nodes.append(StreetNode())
-            self.adj_matrix.append([None for _ in node_names])
+        self.adj_matrix = [[None for _ in self.nodes] for _ in self.nodes]
 
         for i, seg in enumerate(self.segs):
             self.adj_matrix[seg.nodes[0]][seg.nodes[1]] = DirectionalSegRef(i, False)

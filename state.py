@@ -1,20 +1,23 @@
 from threading import Lock
+from typing import Optional
 
-from routes import Route
-
-class RouteState:
-    pass
+from routes import DirectionalRouteNumber
+from streets import StreetGraph
 
 class State:
     mutex: Lock
 
-    last_state_update: float # seconds since epoch
+    last_state_update: Optional[float] # seconds since epoch
     state_update_interval: float # seconds from last state update to start of next state update (sleep duration)
 
-    bus_routes: dict[Route, RouteState]
+    streets: StreetGraph
+    bus_routes: dict[DirectionalRouteNumber, list[int]]
 
-    def __init__(self, routes: list[Route]):
+    def __init__(self, streets: StreetGraph, routes: dict[DirectionalRouteNumber, list[int]]):
         self.mutex = Lock()
 
-        for route in routes:
-            self.bus_routes[route] = RouteState()
+        self.last_state_update = None
+        self.state_update_interval = 0.0
+
+        self.streets = streets
+        self.bus_routes = routes
