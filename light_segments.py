@@ -1,6 +1,7 @@
 import json
 import board
 import neopixel
+import random
 
 # --- CONFIGURATION ---
 LED_PIN = board.D18          # Uses GPIO 18 (PWM standard pin)
@@ -18,10 +19,17 @@ for seg_id, segment in data.items():
     print(segment)
 
 try:
-    while True:
-        for seg_id, segment in data.items():
-            for led_id in segment["led_ids"]:
-                print(led_id)
+    for seg_id, segment in data.items():
+        r = random.randrange(0, 256)
+        g = random.randrange(0, 256)
+        b = random.randrange(0, 256)
+
+
+        for led_id in segment["led_ids"]:
+            pixels[int(led_id)] = (r, g, b)
+
+    pixels.show()
+                
 
 except KeyboardInterrupt:
     # Clear the strip cleanly when exiting
