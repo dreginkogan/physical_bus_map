@@ -1,18 +1,14 @@
 from time import sleep
 
-from state import State
+from state import State, StateManager
 
 def update_display(state: State):
-    assert state.mutex.locked()
-
     # TODO
+    pass
 
-def display_loop(state: State):
+def display_loop(state_mgr: StateManager):
     while True:
-        state.mutex.acquire()
-
-        update_display(state)
-
-        state.mutex.release()
+        with state_mgr as state:
+            update_display(state)
 
         sleep(0.05) # TODO: sleep this thread when nothing needs updating
