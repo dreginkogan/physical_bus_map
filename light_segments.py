@@ -1,5 +1,4 @@
 import json
-
 import board
 import neopixel
 
@@ -17,3 +16,16 @@ with open('segments.json') as file:
 
 for segment in data:
     print(segment)
+
+try:
+    while True:
+        for segment in data:
+            for led_id in segment["led_ids"]:
+                print(led_id)
+
+except KeyboardInterrupt:
+    # Clear the strip cleanly when exiting
+    pixels.fill((0, 0, 0))
+    pixels.show()
+    print("\nLEDs turned off.")
+
