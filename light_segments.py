@@ -14,12 +14,12 @@ pixels = neopixel.NeoPixel(LED_PIN, LED_COUNT, brightness=BRIGHTNESS, auto_write
 with open('segments.json') as file:
     data = json.load(file)
 
-for segment in data:
+for seg_id, segment in data.items():
     print(segment)
 
 try:
     while True:
-        for segment in data:
+        for seg_id, segment in data.items():
             for led_id in segment["led_ids"]:
                 print(led_id)
 
