@@ -1,17 +1,18 @@
-from enum import Enum
 from dataclasses import dataclass
+from typing import NewType
 
-from coords import Map2DCoords
+from leds import LEDID
 
-class StreetNode(Enum):
+@dataclass
+class StreetNode:
     pass
+
+NodeID = NewType('NodeID', int)
 
 @dataclass
 class StreetSeg:
     street_name: str
-    nodes: tuple[StreetNode, StreetNode]
-    leds: dict[int, Map2DCoords] # maps LED IDs to their coordinates
+    nodes: tuple[NodeID, NodeID]
+    leds: list[LEDID] # in order from nodes[0] to nodes[1]
 
-street_segs: list[StreetSeg] = [
-    
-]
+SegID = NewType('StreetSegID', int)
