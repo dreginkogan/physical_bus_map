@@ -5,7 +5,7 @@ from coords import Map2DCoords
 
 @dataclass
 class StreetNode:
-    pass
+    point: Map2DCoords
 
 @dataclass
 class StreetSeg:
@@ -17,7 +17,7 @@ class StreetSeg:
     # LED IDs, in order from nodes[0] to nodes[1]
     leds: list[int]
 
-    # in order from nodes[0] to nodes[1]
+    # in order from nodes[0] to nodes[1], omitting nodes[0].point and nodes[1].point
     curve: list[Map2DCoords]
 
 @dataclass
