@@ -12,20 +12,33 @@ BRIGHTNESS = 0.6             # Set brightness level (0.0 to 1.0)
 # auto_write=False means changes won't show until we call pixels.show()
 pixels = neopixel.NeoPixel(LED_PIN, LED_COUNT, brightness=BRIGHTNESS, auto_write=False)
 
-with open('segments.json') as file:
-    data = json.load(file)
+with open('routes.json') as route_segments:
+    route_data = json.load(route_segments)
+
+with open('segments.json') as segments:
+    segment_data = json.load(segments)
 
 try:
-    for seg_id, segment in data.items():
-        r = random.randrange(0, 256)
-        g = random.randrange(0, 256)
-        b = random.randrange(0, 256)
+    for route in route_data:
+        in_segs = route['INBOUND']
+        out_segs = route['OUTBOUND']
+
+        print(in_segs)
+        print(out_segs)
+        print()
 
 
-        for led_id in segment["led_ids"]:
-            pixels[int(led_id)] = (r, g, b)
 
-    pixels.show()
+    # for seg_id, segment in data.items():
+    #     r = random.randrange(0, 256)
+    #     g = random.randrange(0, 256)
+    #     b = random.randrange(0, 256)
+
+
+    #     for led_id in segment["led_ids"]:
+    #         pixels[int(led_id)] = (r, g, b)
+
+    # pixels.show()
                 
 
 except KeyboardInterrupt:
