@@ -23,10 +23,12 @@ try:
     for route_name, route_segs in route_data["ROUTES"].items():
 
         route_color = route_segs['COLOR']
-
-        print(route_color)
+        inbound_segs = route_segs['INBOUND']
+        outbound_segs = route_segs['OUTBOUND']
         
-
+        for seg in inbound_segs:
+            for led_id in seg:
+                pixels[int(led_id)] = (256, 200, 200)
 
 
     # for seg_id, segment in data.items():
