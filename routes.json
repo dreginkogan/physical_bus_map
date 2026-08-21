@@ -1,6 +1,6 @@
 {
     "ROUTES" : {
-        
+
         "88" : {
             "INBOUND" : ["JK", "JL"],
             "OUTBOUND" : ["JK", "JL"],
@@ -23,7 +23,7 @@
         },
         "87" : {
             "INBOUND" : ["EF", "DE", "DM", "MN", "NP", "PR"],
-            "OUTBOUND" : ["EF", "EG", "IG", "IM", "MN", "NO", "OP", "PR"],
+            "OUTBOUND" : ["EF", "EG", "GI", "IM", "MN", "NO", "OP", "PR"],
             "COLOR" : "27F58B"
         }
 

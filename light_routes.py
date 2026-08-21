@@ -31,8 +31,6 @@ try:
         inbound_segs = route_segs['INBOUND']
         outbound_segs = route_segs['OUTBOUND']
 
-        print(inbound_segs)
-
         i = 30
 
         while i>0:
@@ -41,18 +39,18 @@ try:
                 print(f"seg {segment_data[seg]}")
                 for led_id in segment_data[seg]["led_ids"]:
                     pixels[int(led_id)] = hex_to_rgb(route_color)
-                pixels.show()
 
             time.sleep(0.1)
+            pixels.show()
             pixels.fill((0, 0, 0))
 
             for seg in outbound_segs:
                         print(f"seg {segment_data[seg]}")
                         for led_id in segment_data[seg]["led_ids"]:
                             pixels[int(led_id)] = hex_to_rgb(route_color)
-                        pixels.show()
 
             time.sleep(0.1)
+            pixels.show()
             pixels.fill((0, 0, 0))
             i-=1
         
