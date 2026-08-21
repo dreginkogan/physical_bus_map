@@ -29,7 +29,7 @@ try:
         print(inbound_segs)
         
         for seg in inbound_segs:
-            print(f"seg {seg}")
+            print(f"seg {segment_data[seg]}")
             for led_id in segment_data[seg]:
                 pixels[int(led_id)] = (256, 200, 200)
 
