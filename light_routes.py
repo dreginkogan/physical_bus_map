@@ -22,7 +22,9 @@ try:
 
     for route_name, route_segs in route_data["ROUTES"].items():
 
-        print(f"{route_name} - {route_segs}")
+        route_color = route_segs['COLOR']
+
+        print(route_color)
         
 
 
