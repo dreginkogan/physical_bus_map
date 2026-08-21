@@ -40,7 +40,6 @@ try:
             while i>0:
             
                 for seg in inbound_segs:
-                    print(f"seg {segment_data[seg]}")
                     for led_id in segment_data[seg]["led_ids"]:
                         pixels[int(led_id)] = hex_to_rgb(route_color)
 
@@ -49,7 +48,6 @@ try:
                 pixels.fill((0, 0, 0))
 
                 for seg in outbound_segs:
-                            print(f"seg {segment_data[seg]}")
                             for led_id in segment_data[seg]["led_ids"]:
                                 pixels[int(led_id)] = hex_to_rgb(route_color)
 
