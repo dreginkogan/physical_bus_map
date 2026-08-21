@@ -12,20 +12,23 @@ BRIGHTNESS = 0.6             # Set brightness level (0.0 to 1.0)
 # auto_write=False means changes won't show until we call pixels.show()
 pixels = neopixel.NeoPixel(LED_PIN, LED_COUNT, brightness=BRIGHTNESS, auto_write=False)
 
-with open('routes.json') as route_segments:
-    route_data = json.load(route_segments)
+with open('routes.json') as route_segment_file:
+    route_data = json.load(route_segment_file)
 
 with open('segments.json') as segments:
     segment_data = json.load(segments)
 
 try:
 
-    for route in route_data.items():
+    for route, route_segments, color in route_data.items():
 
         print(route)
+        print(route_segments)
+        print(color)
+        print()
 
-        in_segs = route['INBOUND']
-        out_segs = route['OUTBOUND']
+        in_segs = route["INBOUND"]
+        out_segs = route["OUTBOUND"]
 
         print(in_segs)
         print(out_segs)
