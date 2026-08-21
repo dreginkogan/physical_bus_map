@@ -19,7 +19,11 @@ with open('segments.json') as segments:
     segment_data = json.load(segments)
 
 try:
-    for route in route_data:
+
+    for route in route_data.items():
+
+        print(route)
+
         in_segs = route['INBOUND']
         out_segs = route['OUTBOUND']
 
