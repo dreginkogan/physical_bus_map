@@ -2,6 +2,7 @@ import json
 import board
 import neopixel
 import random
+import time
 
 # --- CONFIGURATION ---
 LED_PIN = board.D18          # Uses GPIO 18 (PWM standard pin)
@@ -31,7 +32,10 @@ try:
         for seg in inbound_segs:
             print(f"seg {segment_data[seg]}")
             for led_id in segment_data[seg]["led_ids"]:
-                pixels[int(led_id)] = (256, 200, 200)
+                pixels[int(led_id)] = (255, 200, 200)
+            pixels.show()
+
+        time.sleep(1)
 
 
     # for seg_id, segment in data.items():
