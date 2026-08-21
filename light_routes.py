@@ -52,8 +52,8 @@ try:
                             pixels[int(led_id)] = hex_to_rgb(route_color)
                         pixels.show()
 
-            pixels.fill((0, 0, 0))
             time.sleep(0.1)
+            pixels.fill((0, 0, 0))
             i-=1
         
 
