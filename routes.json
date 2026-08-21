@@ -1,29 +1,31 @@
 {
-    "88" : {
-        "INBOUND" : ["JK", "JL"],
-        "OUTBOUND" : ["JK", "JL"],
-        "COLOR" : "27F58B"
-    },
-    "86" : {
-        "INBOUND" : ["CQ", "BQ", "BD", "DE", "EF"],
-        "OUTBOUND" : ["CQ", "BQ", "BD", "DE", "EF"],
-        "COLOR" : "EB27F5"
-    },
-    "64" : {
-        "INBOUND" : ["JK", "IJ", "IM", "MN", "NP", "PQ", "CQ"],
-        "OUTBOUND" : ["JK", "IJ", "IM", "MN", "NO", "BO", "CQ"],
-        "COLOR" : "E1FF00"
-    },
-    "54" : {
-        "INBOUND" : ["EF", "DE", "BD", "AB"],
-        "OUTBOUND" : ["EF", "DE", "BD", "AB"],
-        "COLOR" : "F5A327"
-    },
-    "87" : {
-        "INBOUND" : ["EF", "DE", "DM", "MN", "NP", "PR"],
-        "OUTBOUND" : ["EF", "EG", "IG", "IM", "MN", "NO", "OP", "PR"],
-        "COLOR" : "27F58B"
-    }
+    "ROUTES" : {
+        
+        "88" : {
+            "INBOUND" : ["JK", "JL"],
+            "OUTBOUND" : ["JK", "JL"],
+            "COLOR" : "27F58B"
+        },
+        "86" : {
+            "INBOUND" : ["CQ", "BQ", "BD", "DE", "EF"],
+            "OUTBOUND" : ["CQ", "BQ", "BD", "DE", "EF"],
+            "COLOR" : "EB27F5"
+        },
+        "64" : {
+            "INBOUND" : ["JK", "IJ", "IM", "MN", "NP", "PQ", "CQ"],
+            "OUTBOUND" : ["JK", "IJ", "IM", "MN", "NO", "BO", "CQ"],
+            "COLOR" : "E1FF00"
+        },
+        "54" : {
+            "INBOUND" : ["EF", "DE", "BD", "AB"],
+            "OUTBOUND" : ["EF", "DE", "BD", "AB"],
+            "COLOR" : "F5A327"
+        },
+        "87" : {
+            "INBOUND" : ["EF", "DE", "DM", "MN", "NP", "PR"],
+            "OUTBOUND" : ["EF", "EG", "IG", "IM", "MN", "NO", "OP", "PR"],
+            "COLOR" : "27F58B"
+        }
 
-    
+    }
 }

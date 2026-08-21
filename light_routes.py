@@ -20,19 +20,10 @@ with open('segments.json') as segments:
 
 try:
 
-    for route, route_segments, color in route_data.items():
+    for route in route_data["ROUTES"]:
 
         print(route)
-        print(route_segments)
-        print(color)
-        print()
-
-        in_segs = route["INBOUND"]
-        out_segs = route["OUTBOUND"]
-
-        print(in_segs)
-        print(out_segs)
-        print()
+        
 
 
 
