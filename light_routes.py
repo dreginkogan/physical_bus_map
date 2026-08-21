@@ -19,6 +19,10 @@ with open('routes.json') as route_segment_file:
 with open('segments.json') as segments:
     segment_data = json.load(segments)
 
+def hex_to_rgb(hex_str: str) -> tuple[int, int, int]:
+  hex_str = hex_str.lstrip("#")
+  return tuple(int(hex_str[i : i + 2], 16) for i in (0, 2, 4))
+
 try:
 
     for route_name, route_segs in route_data["ROUTES"].items():
@@ -28,14 +32,31 @@ try:
         outbound_segs = route_segs['OUTBOUND']
 
         print(inbound_segs)
-        
-        for seg in inbound_segs:
-            print(f"seg {segment_data[seg]}")
-            for led_id in segment_data[seg]["led_ids"]:
-                pixels[int(led_id)] = (255, 200, 200)
-            pixels.show()
 
-        time.sleep(1)
+        i = 30
+
+        while i>0:
+        
+            for seg in inbound_segs:
+                print(f"seg {segment_data[seg]}")
+                for led_id in segment_data[seg]["led_ids"]:
+                    pixels[int(led_id)] = hex_to_rgb(route_color)
+                pixels.show()
+
+            pixels.fill((0, 0, 0))
+            time.sleep(0.1)
+
+            for seg in outbound_segs:
+                        print(f"seg {segment_data[seg]}")
+                        for led_id in segment_data[seg]["led_ids"]:
+                            pixels[int(led_id)] = hex_to_rgb(route_color)
+                        pixels.show()
+
+            pixels.fill((0, 0, 0))
+            time.sleep(0.1)
+            i-=1
+        
+
 
 
     # for seg_id, segment in data.items():
