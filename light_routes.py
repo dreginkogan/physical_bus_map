@@ -25,48 +25,38 @@ def hex_to_rgb(hex_str: str) -> tuple[int, int, int]:
 
 try:
 
-    for route_name, route_segs in route_data["ROUTES"].items():
+    while True:
 
-        route_color = route_segs['COLOR']
-        inbound_segs = route_segs['INBOUND']
-        outbound_segs = route_segs['OUTBOUND']
+        for route_name, route_segs in route_data["ROUTES"].items():
 
-        i = 30
+            route_color = route_segs['COLOR']
+            inbound_segs = route_segs['INBOUND']
+            outbound_segs = route_segs['OUTBOUND']
 
-        while i>0:
-        
-            for seg in inbound_segs:
-                print(f"seg {segment_data[seg]}")
-                for led_id in segment_data[seg]["led_ids"]:
-                    pixels[int(led_id)] = hex_to_rgb(route_color)
+            print(f"Displaying route {route_name}")
 
-            time.sleep(0.1)
-            pixels.show()
-            pixels.fill((0, 0, 0))
+            i = 30
 
-            for seg in outbound_segs:
-                        print(f"seg {segment_data[seg]}")
-                        for led_id in segment_data[seg]["led_ids"]:
-                            pixels[int(led_id)] = hex_to_rgb(route_color)
+            while i>0:
+            
+                for seg in inbound_segs:
+                    print(f"seg {segment_data[seg]}")
+                    for led_id in segment_data[seg]["led_ids"]:
+                        pixels[int(led_id)] = hex_to_rgb(route_color)
 
-            time.sleep(0.1)
-            pixels.show()
-            pixels.fill((0, 0, 0))
-            i-=1
-        
+                time.sleep(0.05)
+                pixels.show()
+                pixels.fill((0, 0, 0))
 
+                for seg in outbound_segs:
+                            print(f"seg {segment_data[seg]}")
+                            for led_id in segment_data[seg]["led_ids"]:
+                                pixels[int(led_id)] = hex_to_rgb(route_color)
 
-
-    # for seg_id, segment in data.items():
-    #     r = random.randrange(0, 256)
-    #     g = random.randrange(0, 256)
-    #     b = random.randrange(0, 256)
-
-
-    #     for led_id in segment["led_ids"]:
-    #         pixels[int(led_id)] = (r, g, b)
-
-    # pixels.show()
+                time.sleep(0.05)
+                pixels.show()
+                pixels.fill((0, 0, 0))
+                i-=1
                 
 
 except KeyboardInterrupt:
