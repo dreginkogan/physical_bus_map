@@ -20,9 +20,9 @@ with open('segments.json') as segments:
 
 try:
 
-    for route in route_data["ROUTES"].items():
+    for route_name, route_segs in route_data["ROUTES"].items():
 
-        print(route)
+        print(f"{route_name} - {route_segs}")
         
 
 
