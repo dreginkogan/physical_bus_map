@@ -25,6 +25,8 @@ try:
         route_color = route_segs['COLOR']
         inbound_segs = route_segs['INBOUND']
         outbound_segs = route_segs['OUTBOUND']
+
+        print(inbound_segs)
         
         for seg in inbound_segs:
             for led_id in seg:
