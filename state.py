@@ -8,8 +8,8 @@ class State:
     last_state_update: Optional[float] # seconds since epoch
     state_update_interval: float # seconds from last state update to start of next state update (sleep duration)
 
-    streets: StreetGraph
-    bus_routes: dict[DirectionalRouteNumber, list[int]]
+    busses: dict[DirectionalRouteNumber, list[Bus]] = dict()
+    estimates: dict[DirectionalRouteNumber, float] = dict() # values are seconds since epoch
 
     def __init__(self, streets: StreetGraph, routes: dict[DirectionalRouteNumber, list[int]]):
         self.last_state_update = None

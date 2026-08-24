@@ -1,9 +1,23 @@
 from time import time, sleep
+import requests
+import xmltodict
+
+from routes import ROUTES
 
 from state import State, StateManager
 
 def update_state_from_prt(state: State):
     # TODO
+    routes_list = ",".join([route.value for route in ROUTES])
+
+    vehicle_data = xmltodict.parse(
+                   requests.get(
+                   f"http://realtime.portauthority.org/bustime/api/v3/getvehicles?key={api_key}&rt={routes_list}&rtpidatafeed=Port Authority Bus"
+                   ).text)
+
+    # TODO make it so this doesnt use xmltodict
+    print(vehicle_data)
+
     pass
 
 def prt_loop(state_mgr: StateManager):
