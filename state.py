@@ -5,8 +5,11 @@ class State:
     last_state_update: Optional[float] # seconds since epoch
     state_update_interval: float # seconds from last state update to start of next state update (sleep duration)
 
-    busses = dict()
-    estimates = dict() # values are seconds since epoch
+    # busses = dict()
+    # estimates = dict() # values are seconds since epoch
+
+    busses = list()
+    estimates = list()
 
     def __init__(self):
         self.last_state_update = None
