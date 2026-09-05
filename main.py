@@ -15,7 +15,7 @@ print(PRT_API_KEY)
 if __name__ == "__main__":
     # (streets, bus_routes) = parse_data_files()
 
-    state_mgr = StateManager(State(streets, bus_routes))
+    state_mgr = StateManager(State())
 
     prt_thread = Thread(target=prt_loop, args=(state_mgr,))
     display_thread = Thread(target=display_loop, args=(state_mgr,))
