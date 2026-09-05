@@ -3,7 +3,6 @@ import os
 from threading import Thread
 
 from display import display_loop
-from parse import parse_data_files
 from prt import prt_loop
 from state import State, StateManager
 
@@ -14,7 +13,7 @@ PRT_API_KEY = os.getenv("PRT_API_KEY")
 print(PRT_API_KEY)
 
 if __name__ == "__main__":
-    (streets, bus_routes) = parse_data_files()
+    # (streets, bus_routes) = parse_data_files()
 
     state_mgr = StateManager(State(streets, bus_routes))
 

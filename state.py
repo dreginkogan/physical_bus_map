@@ -1,22 +1,19 @@
 from threading import Lock
 from typing import Optional
 
-from routes import DirectionalRouteNumber
-from streets import StreetGraph
-
 class State:
     last_state_update: Optional[float] # seconds since epoch
     state_update_interval: float # seconds from last state update to start of next state update (sleep duration)
 
-    busses: dict[DirectionalRouteNumber, list[Bus]] = dict()
-    estimates: dict[DirectionalRouteNumber, float] = dict() # values are seconds since epoch
+    busses = dict()
+    estimates = dict() # values are seconds since epoch
 
-    def __init__(self, streets: StreetGraph, routes: dict[DirectionalRouteNumber, list[int]]):
+    def __init__(self):
         self.last_state_update = None
         self.state_update_interval = 0.0
 
-        self.streets = streets
-        self.bus_routes = routes
+        # self.streets = streets
+        # self.bus_routes = routes
 
 
 class StateManager:
