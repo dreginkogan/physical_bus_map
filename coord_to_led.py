@@ -22,6 +22,7 @@ def coords_to_led(rt: str, dir: str, lat: float, lon: float):
 
     led_list = []
     coords_list = [] #interpolate values based on node coords
+    leds_to_light = []
 
     for segment in segments_list:
         segment_leds = segments_dict[segment]["led_ids"]
@@ -53,12 +54,16 @@ def coords_to_led(rt: str, dir: str, lat: float, lon: float):
         led_list = list(set(led_list + segment_leds))
 
     # this needs to give the index
-    nearest_led = min(coords_list, key=lambda x: distance(x, (lat, lon))) 
+    # nearest_led = min(coords_list, key=lambda x: distance(x, (lat, lon))) 
 
-    for idx, coord in enumerate(coords_list)
+    min_diff, res = float('inf'), None
+    for idx, coord in enumerate(coords_list):
+        if distance((lat, lon), coord) < min_diff:
+            min_diff = distance((lat, lon), coord)
+            res = idx
 
-    print(nearest_led)
+    nearest_led = led_list[idx]
 
-    #TODO return a list of 
+    leds_to_light.append(nearest_led) # so i can expand the number of leds i return
 
-    return nearest_led, color
+    return leds_to_light, color

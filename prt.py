@@ -39,8 +39,6 @@ def purge_outside_busses(vehicles, corners):
     return vehicles
 
 def update_state_from_prt(state: State):
-    # TODO
-
     routes_list = ",".join([route for route in routes_dict])
 
     try:
@@ -53,15 +51,17 @@ def update_state_from_prt(state: State):
 
         # TODO make it so this ^ doesnt rely on xmltodict
         # TODO write json for bus stops to get estimates
+        # or maybe make it its own file?
 
         # remove vehicles outside of geographic bounds from dict
         vehicles_list = purge_outside_busses(vehicle_data["bustime-response"]["vehicle"], map_corners)
 
-        print("the vehicles that are in the map irl arn are:")
-        print()
-        for vehicle in vehicles_list:
-            print(f"The Humble {vehicle["rt"]} heading {vehicle["rtdir"]}")
-            print()
+        # DEBUG
+        # print("the vehicles that are in the map irl arn are:")
+        # print()
+        # for vehicle in vehicles_list:
+        #     print(f"The Humble {vehicle["rt"]} heading {vehicle["rtdir"]}")
+        #     print()
 
         state.busses = vehicles_list
         #state.estimates = blablabla blebleble
