@@ -6,7 +6,7 @@ from state import State, StateManager
 
 from coord_to_led import coords_to_led
 
-LED_PIN = board.D18
+LED_PIN = board.D18 # fyi this has to run on rpi, will throw errors if just ran on laptop 
 LED_COUNT = 362
 BRIGHTNESS = 0.6
 
@@ -26,6 +26,7 @@ def update_display(state: State):
 
         leds_to_light, color = coords_to_led(bus_rt, bus_dir, bus_lat, bus_lon)
 
+        print(f"Need to lights leds {leds_to_light} the color {color}")
 
 
     # TODO
