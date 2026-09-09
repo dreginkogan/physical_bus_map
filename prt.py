@@ -57,11 +57,11 @@ def update_state_from_prt(state: State):
         vehicles_list = purge_outside_busses(vehicle_data["bustime-response"]["vehicle"], map_corners)
 
         # DEBUG
-        # print("the vehicles that are in the map irl arn are:")
-        # print()
-        # for vehicle in vehicles_list:
-        #     print(f"The Humble {vehicle["rt"]} heading {vehicle["rtdir"]}")
-        #     print()
+        print("the vehicles that are in the map irl arn are:")
+        print()
+        for vehicle in vehicles_list:
+            print(f"The Humble {vehicle["rt"]} heading {vehicle["rtdir"]}")
+            print()
 
         state.busses = vehicles_list
         #state.estimates = blablabla blebleble
