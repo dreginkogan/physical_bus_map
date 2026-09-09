@@ -47,4 +47,4 @@ def display_loop(state_mgr: StateManager):
         with state_mgr as state:
             update_display(state)
 
-        sleep(30)
+        sleep(5)
