@@ -62,7 +62,7 @@ def coords_to_led(rt: str, dir: str, lat: float, lon: float):
             min_diff = distance((lat, lon), coord)
             res = idx
 
-    nearest_led = led_list[idx]
+    nearest_led = led_list[res]
 
     leds_to_light.append(nearest_led) # so i can expand the number of leds i return
 
