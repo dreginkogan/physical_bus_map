@@ -32,7 +32,7 @@ def update_display(state: State):
 
         leds_to_light, color = coords_to_led(bus_rt, bus_dir, bus_lat, bus_lon)
 
-        print(f"Lighting {leds_to_light} the color {color} for route {bus_rt} heading {bus_dir}")
+        print(f"Lighting {leds_to_light} the color {color} for route {bus_rt} heading {bus_dir} at ({bus_lat}, {bus_lon})")
 
         for led in leds_to_light:
             pixels[led] = hex_to_rgb(color)

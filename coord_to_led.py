@@ -53,9 +53,6 @@ def coords_to_led(rt: str, dir: str, lat: float, lon: float):
         coords_list = list(set(coords_list + segment_coords))
         led_list = list(set(led_list + segment_leds))
 
-    # this needs to give the index
-    # nearest_led = min(coords_list, key=lambda x: distance(x, (lat, lon))) 
-
     min_diff, res = float('inf'), None
     for idx, coord in enumerate(coords_list):
         if distance((lat, lon), coord) < min_diff:
