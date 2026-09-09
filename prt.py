@@ -54,15 +54,15 @@ def update_state_from_prt(state: State):
         # or maybe make it its own file?
 
         # remove vehicles outside of geographic bounds from dict
-        # vehicles_list = purge_outside_busses(vehicle_data["bustime-response"]["vehicle"], map_corners)
-        vehicles_list = vehicle_data["bustime-response"]["vehicle"]
+        vehicles_list = purge_outside_busses(vehicle_data["bustime-response"]["vehicle"], map_corners)
+        # vehicles_list = vehicle_data["bustime-response"]["vehicle"]
 
         # DEBUG
         print("the vehicles that are in the map irl arn are:")
         print()
         for vehicle in vehicles_list:
             print(f"The Humble {vehicle["rt"]} heading {vehicle["rtdir"]}")
-            print()
+        print()
 
         state.busses = vehicles_list
         #state.estimates = blablabla blebleble

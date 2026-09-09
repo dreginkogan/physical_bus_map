@@ -19,7 +19,7 @@ def hex_to_rgb(value):
     return tuple(int(value[i:i + lv // 3], 16) for i in range(0, lv, lv // 3))
 
 def update_display(state: State):
-    pixels.fill((0, 0, 0))
+    # pixels.fill((0, 0, 0))
 
     vehicles_list = state.busses
 
@@ -32,7 +32,7 @@ def update_display(state: State):
 
         leds_to_light, color = coords_to_led(bus_rt, bus_dir, bus_lat, bus_lon)
 
-        print(f"Lighting {leds_to_light} the color {color}")
+        print(f"Lighting {leds_to_light} the color {color} for route {bus_rt} heading {bus_dir}")
 
         for led in leds_to_light:
             pixels[led] = hex_to_rgb(color)
