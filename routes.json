@@ -4,7 +4,7 @@
         "88" : {
             "INBOUND" : ["JK", "JL"],
             "OUTBOUND" : ["JK", "JL"],
-            "COLOR" : "27F58B"
+            "COLOR" : "00FF00"
         },
         "86" : {
             "INBOUND" : ["CQ", "BQ", "BD", "DE", "EF"],
@@ -14,12 +14,12 @@
         "64" : {
             "INBOUND" : ["JK", "IJ", "IM", "MN", "NP", "PQ", "CQ"],
             "OUTBOUND" : ["JK", "IJ", "IM", "MN", "NO", "BO", "CQ"],
-            "COLOR" : "E1FF00"
+            "COLOR" : "FF0000"
         },
         "54" : {
             "INBOUND" : ["EF", "DE", "BD", "AB"],
             "OUTBOUND" : ["EF", "DE", "BD", "AB"],
-            "COLOR" : "F5A327"
+            "COLOR" : "0000FF"
         },
         "87" : {
             "INBOUND" : ["EF", "DE", "DM", "MN", "NP", "PR"],

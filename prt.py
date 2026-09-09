@@ -28,15 +28,16 @@ def purge_outside_busses(vehicles, corners):
     dict
         vehicle dict with busses only within the defined bounds
     """
+    new_vehicles_list = []
 
     for vehicle in vehicles:
         lat = float(vehicle["lat"])
         lon = float(vehicle["lon"])
 
-        if lat>corners[0][0] or lat<corners[1][0] or lon>corners[0][1] or lon<corners[1][1]:
-            vehicles.remove(vehicle)
+        if lat<corners[0][0] and lat>corners[1][0] and lon>corners[0][1] and lon<corners[1][1]:
+            new_vehicles_list.append(vehicle)
 
-    return vehicles
+    return new_vehicles_list
 
 def update_state_from_prt(state: State):
     routes_list = ",".join([route for route in routes_dict])
