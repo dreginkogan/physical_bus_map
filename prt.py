@@ -33,7 +33,7 @@ def purge_outside_busses(vehicles, corners):
         lat = float(vehicle["lat"])
         lon = float(vehicle["lon"])
 
-        if lat>corners[0][0] or lat<corners[1][0] or lon>corners[0][1] or lat<corners[1][1]:
+        if lat>corners[0][0] or lat<corners[1][0] or lon>corners[0][1] or lon<corners[1][1]:
             vehicles.remove(vehicle)
 
     return vehicles
