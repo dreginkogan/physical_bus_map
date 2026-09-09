@@ -1,5 +1,3 @@
-from dotenv import load_dotenv
-import os
 from threading import Thread
 
 from display import display_loop
